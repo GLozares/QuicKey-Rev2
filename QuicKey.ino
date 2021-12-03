@@ -13,6 +13,8 @@ void setup() {
 
 // the loop function runs over and over again until power down or reset
 void loop() {
-	Serial.print("Hello world!");
-	delay(50);
+	Keyboard.press(0x61);
+	delay(5);
+	Keyboard.release(0x61);
+	delay(5000);
 }
