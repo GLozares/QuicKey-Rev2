@@ -21,8 +21,19 @@
     <ClInclude Include="__vm\.QuicKey.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="keycodes.h">
+    <ClInclude Include="timerInit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="keycode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="timerInit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="keycode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -5,10 +5,12 @@
 */
 
 #include <Keyboard.h>
+#include "keycode.h"
 
 // the setup function runs once when you press reset or power the board
 void setup() {
 	Serial.begin(9600);
+	Keyboard.begin();
 }
 
 // the loop function runs over and over again until power down or reset

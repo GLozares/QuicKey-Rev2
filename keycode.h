@@ -1,5 +1,16 @@
-#pragma once
+// keycode.h
 
+#ifndef _keycode_h
+#define _keycode_h
+
+#if defined(ARDUINO) && ARDUINO >= 100
+	#include "arduino.h"
+#else
+	#include "WProgram.h"
+#endif
+
+
+#endif
 
 //Define Standard Keyboard Keys (ASCII Hex)
 #define KC_A 0x61
@@ -28,3 +39,4 @@
 #define KC_X 0x78
 #define KC_Y 0x79
 #define KC_Z 0x7A
+
