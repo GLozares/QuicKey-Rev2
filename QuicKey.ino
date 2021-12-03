@@ -41,7 +41,9 @@ void setup() {
 	pinMode(15, INPUT_PULLUP); //column 1 PB1
 	pinMode(16, INPUT_PULLUP); //column 2 PB2
 	pinMode(17, INPUT_PULLUP); //column 0 PB0
-	pinMode(30, INPUT); //column 8 PD5
+	//pinMode(30, INPUT); //column 8 PD5
+	DDRD &= ~(1 << DDD5);
+	PIND |= (1 << PIND5);
 
 	//Timer Initialization
 	Timer1.initialize(20000);
@@ -49,6 +51,7 @@ void setup() {
 }
 
 uint8_t returnedKey;
+uint8_t releasedKey;
 
 void keyboard_scan() {
 	//setting all the rows to 1
@@ -68,21 +71,17 @@ void keyboard_scan() {
 
 		//scan through the columns to see which button is pressed.
 		for (j = 0; j < 14; j++) {
+
 			if ((digitalRead(port_cols[j]) == 0)) {
-				//Serial.print(i);
-				//Serial.print(", ");
-				//Serial.print(j);
-				//Serial.print("\n");
-				//delay(25);
-				returnedKey = keyboard[i][j];
-				Serial.println(returnedKey);
-				Keyboard.press(returnedKey);
-				digitalWrite(30, LOW);
-			}
+				Keyboard.press(keyboard[i][j]);
+			} 
+
 			else if (digitalRead(port_cols[j] == 1)) {
+				
 				Keyboard.release(keyboard[i][j]);
-				digitalWrite(30, LOW);
+				
 			}
+
 		}
 		digitalWrite(port_rows[i], HIGH); //set the row back to 1 and move on to the next row
 		digitalWrite(30, LOW); //disable pull-up resistor on column 8 to prevent ghosting
@@ -97,11 +96,6 @@ void printSerial() {
 
 // the loop function runs over and over again until power down or reset
 void loop() {
-	//if (returnedKey != 0x00) {
-	//	//Serial.print(returnedKey);
-	//	Keyboard.press(returnedKey);
-	//}
-	//else {
-	//	Keyboard.releaseAll();
-	//}
+
+
 }
