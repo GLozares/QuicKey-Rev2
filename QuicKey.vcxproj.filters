@@ -24,5 +24,8 @@
     <ClInclude Include="keycodes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="keyMatrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
